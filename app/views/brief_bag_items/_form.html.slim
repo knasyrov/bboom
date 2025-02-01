@@ -1,0 +1,26 @@
+= form_with(model: brief_bag_item, data: {controller: 'editor'}) do |form|
+  .row.mb-3
+    = form.label :name, 'Название', class: 'form-label col-sm-2'
+    .col-sm-5
+      = form.text_field :name, class: 'form-control'
+
+  .row.mb-3
+    = form.label :symbol, "Символ", class: 'form-label col-sm-2'
+    .col-sm-5
+      div(data-controller="autocomplete" data-autocomplete-url-value="/autocomplete" role="combobox")
+        input.form-control(type="text" data-autocomplete-target="input")
+        = form.hidden_field :symbol, 'data-autocomplete-target': "hidden"
+        ul.list-group(data-autocomplete-target="results")
+
+  .row.mb-3
+    = form.label :value, 'Количество', class: 'form-label col-sm-2'
+    .col-sm-2
+      = form.number_field :value, step: :any, class: 'form-control'
+
+    
+  .row.g-3(style='margin-top: 10px;')
+    .col-auto
+      = form.submit 'сохранить', class: 'btn btn-primary btn-sm'
+
+
+  

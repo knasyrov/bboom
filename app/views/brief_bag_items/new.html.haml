@@ -1,0 +1,7 @@
+- content_for :title, "Новая кошелек"
+
+= render "form", brief_bag_item: @brief_bag_item
+
+.row.mb-3
+  .col-md-12
+    = link_to 'Назад', brief_bag_items_path, class: 'btn btn-primary'

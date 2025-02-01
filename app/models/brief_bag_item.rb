@@ -1,0 +1,2 @@
+class BriefBagItem < ApplicationRecord
+end

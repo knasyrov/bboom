@@ -1,0 +1,10 @@
+= form_for @brief_bag do |f|
+  - if @brief_bag.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@brief_bag.errors.count, "error")} prohibited this brief_bag from being saved:"
+      %ul
+        - @brief_bag.errors.full_messages.each do |message|
+          %li= message
+
+  .actions
+    = f.submit 'Save'
