@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  get "coins/index"
-  resources :brief_bag_items
-  resources :brief_bags
+  resources :wallets
   resources :coins, only: :index
-  get "home/index"
   get "autocomplete", to: 'coins#autocomplete'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

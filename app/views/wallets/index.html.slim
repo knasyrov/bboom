@@ -1,0 +1,41 @@
+p(style='color: green;')
+  = notice
+
+= content_for :title, "Кошельки"
+- sum = 0.0
+
+.row.mb-3
+  .col-md-12
+    table.table.table-bordered.table-striped.table-sm
+      thead
+        tr
+          th Название
+          th Символ
+          th Количество
+          th Курс
+          th Сумма
+          th
+      tbody
+        - @wallets.each do |wallet|
+          tr
+            - price = crypto_to_usd(wallet.eid)
+            - total = price * (wallet&.value || 0.0) 
+            - sum += total
+            td= link_to wallet.name, wallet
+            td= link_to (wallet.symbol || wallet.eid), wallet
+            td= wallet.value
+            td= "$#{price}" 
+            td= "$#{total}"
+            td.text-center
+              = link_to edit_wallet_path(wallet), style: 'margin-right: 10px;' do
+                i.bi.bi-pencil-square
+              = link_to wallet, method: :delete, data: { turbo_method: :delete, turbo_confirm: "Вы уверены?" } do
+                i.bi.bi-x-circle(style='color: red')
+      tfoot 
+        tr
+          td(colspan=4 style="text-align: right; font-weight: bold; padding-right: 5px;") Итого: 
+          td(colspan=2)= "$#{sum}"
+
+.row.mb-3
+  .col-md-12
+    = link_to 'Добавить', new_wallet_path

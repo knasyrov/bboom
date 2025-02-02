@@ -5,8 +5,9 @@ class CoinsController < ApplicationController
   end
 
   def autocomplete
-    ar = Coin.where("symbol like LOWER(:symbol) OR LOWER(name) like LOWER(:symbol)", symbol: "#{params[:q]}%").select(:symbol, :name)
-    @search_results = ar #.map(&:symbol)
+    # coins = Coin.where("symbol like LOWER(:symbol) OR LOWER(name) like LOWER(:symbol)", symbol: "#{params[:q]}%").select(:symbol, :name, :eid)
+    coins = Coin.where("symbol like LOWER(:symbol)", symbol: "#{params[:q]}%").select(:symbol, :name, :eid)
+    @search_results = coins
     render layout: false
   end
 end

@@ -1,0 +1,35 @@
+p(style='color: green;')
+  = notice
+
+- record = @wallet
+- history = record.history
+
+= content_for :title, record.name
+
+.row.mb-3
+  .col-md-6
+    h4 Название 
+    = "#{record.name} - #{record.eid}" 
+    h4 Символ
+    = record.symbol
+    h4 Количество
+    = record.value
+    h4 Сумма
+    = number_to_currency(history.first[:price] * record.value)
+
+  .col-md-6
+    table.table.table-bordered.table-striped.table-sm
+      thead
+        tr
+          th Дата
+          th Курс
+      tbody
+        - history.each_with_index do |h, i|
+          tr
+            td= (i == 0 ? 'сейчас' : h[:date])
+            td= h[:price]
+
+
+= link_to 'Изменить', edit_wallet_path(record)
+| &nbsp;|&nbsp;
+= link_to 'Назад', wallets_path

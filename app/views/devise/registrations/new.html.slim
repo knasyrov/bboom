@@ -1,0 +1,16 @@
+.wrapper.fadeInDown
+  #formContent
+    .fadeIn.first 
+      h3(style='margin-top: 15px') Регистрация
+
+    = render "devise/shared/error_messages", resource: resource
+    = render 'shared/flash'
+
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'fadeIn second', placeholder: "E-mail"
+      = f.password_field :password, autocomplete: "new-password", class: 'fadeIn third',  placeholder: "Пароль"
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: 'fadeIn fourth',  placeholder: "Подтверждение"
+      = f.submit "Регистрация", class: 'fadeIn fourth'
+    
+    #formFooter
+      = link_to "Вход", new_session_path(resource_name), class: 'underlineHover'

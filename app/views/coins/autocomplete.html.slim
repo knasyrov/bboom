@@ -1,11 +1,11 @@
 - @search_results.each do |coin|
   |  <li class="list-group-item" role="option" data-autocomplete-value="
-  = coin.symbol
+  = coin.eid
   | " data-autocomplete-label="
   = coin.name
   |  - 
   = coin.symbol
   | "> 
-  = "#{coin.symbol} - #{coin.name}"
+  = "#{coin.symbol} - #{coin.name} (#{coin.eid})"
   span.badge
     = coin.name

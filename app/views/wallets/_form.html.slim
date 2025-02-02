@@ -1,0 +1,32 @@
+= form_with(model: @wallet) do |f|
+
+  .row.mb-3
+    .col-sm-2
+      = f.label :name, 'Название', class: 'form-label'
+    .col-sm-5
+      = f.text_field :name, class: 'form-control'
+
+  .row.mb-3
+    .col-sm-2
+      = f.label :symbol, "Символ", class: 'form-label'
+    .col-sm-5
+      div(data-controller="autocomplete" data-autocomplete-url-value="/autocomplete" role="combobox")
+        input.form-control(type="text" data-autocomplete-target="input" value="#{@wallet&.symbol}")
+        = f.hidden_field :eid, 'data-autocomplete-target': "hidden"
+        ul.list-group(data-autocomplete-target="results")
+
+  .row.mb-3
+    .col-sm-2
+      = f.label :value, 'Количество', class: 'form-label'
+    .col-sm-2
+      = f.number_field :value, step: :any, class: 'form-control'
+
+    
+  .row.g-3(style='margin-top: 10px;')
+    .col-auto
+      = f.submit 'Cохранить'
+      | &nbsp; | &nbsp;
+      = link_to 'Назад', wallets_path
+      
+
+       

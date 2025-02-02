@@ -1,4 +1,4 @@
 class BriefBag < ApplicationRecord
   belongs_to :user
-  has_many :brief_bag_items
+  has_many :wallets
 end

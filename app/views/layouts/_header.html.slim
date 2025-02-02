@@ -7,9 +7,9 @@ header.navbar.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
   .menu-top.right.text-white.px-3
     - if user_signed_in?
       = current_user.email
-      = link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete },  style: "color: #aaa; margin-left: 10px;"  do
+      = link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete, turbo_confirm: "Вы уверены что хотите выйти?" },  style: "color: #aaa; margin-left: 10px;"  do
         i.bi.bi-box-arrow-right
     - else
       = link_to :new_user_session do
         i.fa.fa-user
-        | login
+        | Вход
