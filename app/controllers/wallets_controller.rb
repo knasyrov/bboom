@@ -29,7 +29,7 @@ class WalletsController < ApplicationController
     end
   end
 
-  def update    
+  def update
     params = wallet_params
     params[:symbol] = Coin.find_by_eid(params[:eid])&.symbol
 
@@ -62,7 +62,6 @@ class WalletsController < ApplicationController
     def wallet_params
       params.fetch(:wallet, {}).permit(:name, :symbol, :value, :eid)
     end
-
 end
 
 

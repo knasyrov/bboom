@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :wallets
   resources :coins, only: :index
-  get "autocomplete", to: 'coins#autocomplete'
+  get "autocomplete", to: "coins#autocomplete"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
