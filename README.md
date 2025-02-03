@@ -2,7 +2,7 @@
 
 Используется:
   - rails 7.2
-  - [devise]()https://github.com/heartcombo/devise
+  - [devise](https://github.com/heartcombo/devise)
   - [slim](https://github.com/slim-template/slim)
   - [coingecko_ruby](https://github.com/julianfssen/coingecko_ruby)
 
