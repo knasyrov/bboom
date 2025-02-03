@@ -22,11 +22,12 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_02_140608) do
   end
 
   create_table "coins", force: :cascade do |t|
-    t.string "symbol"
-    t.string "name"
-    t.string "eid"
+    t.string "symbol", null: false
+    t.string "name", null: false
+    t.string "eid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["eid"], name: "index_coins_on_eid", unique: true
   end
 
   create_table "users", force: :cascade do |t|

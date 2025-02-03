@@ -7,5 +7,7 @@ namespace :coingecko do
       Coin.create(eid: c['id'], symbol: c['symbol'], name: c['name'])
       putc '.'
     end
+
+    puts "\n#{Coin.count} coins loaded"
   end
 end

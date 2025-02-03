@@ -27,7 +27,7 @@ p(style='color: green;')
         - history.each_with_index do |h, i|
           tr
             td= (i == 0 ? 'сейчас' : h[:date])
-            td= h[:price]
+            td= "$#{h[:price]}"
 
 
 = link_to 'Изменить', edit_wallet_path(record)

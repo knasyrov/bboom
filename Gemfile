@@ -69,3 +69,7 @@ gem "slim", "~> 5.2"
 gem "coingecko_ruby", "~> 0.4.2"
 
 gem "devise-i18n", "~> 1.12"
+
+gem "dotenv", "~> 3.1"
+
+gem "faraday", "~> 2.12"
