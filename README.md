@@ -1,24 +1,49 @@
-# README
+Проект написан на ruby-3.3.5
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Используется:
+  - rails 7.2
+  - [devise]()https://github.com/heartcombo/devise
+  - [slim](https://github.com/slim-template/slim)
+  - [coingecko_ruby](https://github.com/julianfssen/coingecko_ruby)
 
-Things you may want to cover:
+Для API [coingecko.com](https://docs.coingecko.com/v3.0.1/)
 
-* Ruby version
+Для запуса необходимо объявить переменные окружения
 
-* System dependencies
+```
+PRJ0_DATABASE_USERNAME=myapp
+PRJ0_DATABASE_PASSWORD=password1
+PRJ0_DATABASE_HOST=localhost
+```
 
-* Configuration
+Затем стандартные действия по созданию БД
 
-* Database creation
+```
+rake db:create
+rake db:migrate
+```
 
-* Database initialization
+Используется гем coingecko_ruby (на базе Faraday)
 
-* How to run the test suite
+Чтобы не загружать криптовалюты предусмотрен rake
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+rake coingecko:import
+```
 
-* Deployment instructions
+затем запуск
 
-* ...
+```
+bin/dev
+```
+или
+```
+rails s
+```
+
+Данные обновляются при перезагрузки страницы (фоновые процессы не предусмотрены)
+
+
+UI на основе [Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+
+Для поиска валют - корректных - используется [stimulus-autocomplete](https://github.com/afcapel/stimulus-autocomplete)
