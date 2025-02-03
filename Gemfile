@@ -49,7 +49,7 @@ group :development, :test do
   gem "rspec", "~> 3.13"
   gem "rspec-rails"
   gem "shoulda-matchers"
-  gem 'simplecov', require: false
+  gem "simplecov", require: false
 end
 
 group :development do

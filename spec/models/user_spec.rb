@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { described_class.new(email: 'test@mail.ru', password: '123pas') }  
+  subject { described_class.new(email: 'test@mail.ru', password: '123pas') }
 
   it { is_expected.to have_one(:brief_bag) }
 

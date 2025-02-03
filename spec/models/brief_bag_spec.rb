@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe BriefBag, type: :model do
-
   it { should belong_to(:user) }
 
   it { is_expected.to have_many(:wallets) }
@@ -12,6 +11,6 @@ RSpec.describe BriefBag, type: :model do
   end
 
   it "is not valid without a user" do
-    expect(BriefBag.new).to be_invalid  
+    expect(BriefBag.new).to be_invalid
   end
 end

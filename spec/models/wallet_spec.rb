@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Wallet, type: :model do
-
   subject { described_class.new(eid: 'eid', name: 'name', symbol: 'symbol') }
 
   it "is valid with valid attributes" do
