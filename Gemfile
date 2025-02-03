@@ -45,6 +45,11 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "rspec", "~> 3.13"
+  gem "rspec-rails"
+  gem "shoulda-matchers"
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -61,8 +66,6 @@ end
 gem "devise", "~> 4.9"
 
 gem "haml-rails", "~> 2.1"
-
-gem "rspec", "~> 3.13"
 
 gem "slim", "~> 5.2"
 
