@@ -4,7 +4,10 @@ namespace :coingecko do
     client = CoingeckoRuby::Client.new
     coins_list = client.coins_list
     coins_list.each do |c|
-      Coin.create(eid: c['id'], symbol: c['symbol'], name: c['name'])
+      Coin.find_or_create_by(eid: c['id']) do |coin|
+        coin.symbol = c['symbol']
+        coin.name = c['name']
+      end
       putc '.'
     end
 
