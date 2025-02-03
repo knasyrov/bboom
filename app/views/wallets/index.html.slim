@@ -2,7 +2,8 @@ p(style='color: green;')
   = notice
 
 = content_for :title, "Кошельки"
-- sum = 0.0
+
+- coins = formatted_coins(@wallets)
 
 .row.mb-3
   .col-md-12
@@ -16,25 +17,22 @@ p(style='color: green;')
           th Сумма
           th
       tbody
-        - @wallets.each do |wallet|
+        - coins[:entries].each do |coin|
           tr
-            - price = crypto_to_usd(wallet.eid)
-            - total = price * (wallet&.value || 0.0) 
-            - sum += total
-            td= link_to wallet.name, wallet
-            td= link_to (wallet.symbol || wallet.eid), wallet
-            td= wallet.value
-            td= "$#{price}" 
-            td= "$#{total}"
+            td= link_to coin[:object].name, coin[:object]
+            td= link_to coin[:object].symbol, coin[:object]
+            td= coin[:object].value
+            td= coin[:formatted_price]
+            td= coin[:formatted_total]
             td.text-center
-              = link_to edit_wallet_path(wallet), style: 'margin-right: 10px;' do
+              = link_to edit_wallet_path(coin[:object]), style: 'margin-right: 10px;' do
                 i.bi.bi-pencil-square
-              = link_to wallet, method: :delete, data: { turbo_method: :delete, turbo_confirm: "Вы уверены?" } do
+              = link_to coin[:object], method: :delete, data: { turbo_method: :delete, turbo_confirm: "Вы уверены?" } do
                 i.bi.bi-x-circle(style='color: red')
       tfoot 
         tr
           td(colspan=4 style="text-align: right; font-weight: bold; padding-right: 5px;") Итого: 
-          td(colspan=2)= "$#{sum}"
+          td(colspan=2)= coins[:total]
 
 .row.mb-3
   .col-md-12
