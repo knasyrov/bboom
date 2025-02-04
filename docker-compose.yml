@@ -34,6 +34,15 @@ services:
       - net_postgres
     restart: unless-stopped
 
+  redis:
+    container_name: redis_container
+    image: redis:7.4
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    networks:
+      - net_postgres
+    restart: unless-stopped
+
 networks:
   net_postgres:
     driver: bridge

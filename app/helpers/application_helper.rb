@@ -1,7 +1,13 @@
 module ApplicationHelper
   def crypto_to_usd(crypto)
     client = CoingeckoRuby::Client.new
-    client.price(crypto, currency: :usd).try(:[], crypto).try(:[], "usd") || 0.0
+    price = client.price(crypto, currency: :usd).try(:[], crypto).try(:[], "usd") || 0.0
+    if price == 0.0
+      price = $redis.get(crypto)&.to_f || 0.0
+    else
+      $redis.set(crypto, price)
+    end
+    price
   end
 
   def formatted_coins(wallets)

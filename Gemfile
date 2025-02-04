@@ -76,3 +76,5 @@ gem "devise-i18n", "~> 1.12"
 gem "dotenv", "~> 3.1"
 
 gem "faraday", "~> 2.12"
+
+gem "redis", "= 5.3"
