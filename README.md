@@ -8,13 +8,18 @@
 
 Для API [coingecko.com](https://docs.coingecko.com/v3.0.1/)
 
-Для запуса необходимо объявить переменные окружения
+Для запуса необходимо описать переменные окружения в .env файл
+
+Можно просто скопировать .env.example 
 
 ```
-PRJ0_DATABASE_USERNAME=myapp
-PRJ0_DATABASE_PASSWORD=password1
-PRJ0_DATABASE_HOST=localhost
-PRJ0_DATABASE_PORT=5432
+cp .evn.example .env
+```
+
+Затем запустить docker-compose
+
+```
+docker compose up -d
 ```
 
 Затем стандартные действия по созданию БД
