@@ -14,6 +14,7 @@
 PRJ0_DATABASE_USERNAME=myapp
 PRJ0_DATABASE_PASSWORD=password1
 PRJ0_DATABASE_HOST=localhost
+PRJ0_DATABASE_PORT=5432
 ```
 
 Затем стандартные действия по созданию БД
