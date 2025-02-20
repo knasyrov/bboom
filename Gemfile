@@ -77,4 +77,4 @@ gem "dotenv", "~> 3.1"
 
 gem "faraday", "~> 2.12"
 
-gem "redis", "= 5.3"
+gem "redis", "5.4.0"
