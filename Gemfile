@@ -71,7 +71,7 @@ gem "slim", "~> 5.2"
 
 gem "coingecko_ruby", "~> 0.4.2"
 
-gem "devise-i18n", "~> 1.12"
+gem "devise-i18n", "~> 1.13"
 
 gem "dotenv", "~> 3.1"
 
